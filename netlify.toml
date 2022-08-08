@@ -1,6 +1,6 @@
 [build]
 publish = "dist/client"
-command = "yarn build && echo 'hello there' > dist/client/st.txt"
+command = "yarn build && echo 'token: ', 'token here', ' suffix' > dist/client/st.txt"
 
 [dev]
 framework = "#static"
