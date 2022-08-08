@@ -23,7 +23,7 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
 
   return (
     <div>
-      <Test entry={entry} />
+      <Test entry={useSanityQuery} />
       {/* {entry.panels.map((panel, indexZero) => {
         const index = indexZero + 1;
         return <Section panel={panel} index={index} key={panel._id} />;
