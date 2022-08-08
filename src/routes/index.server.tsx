@@ -14,6 +14,8 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
 
   console.log('hello from the server component');
 
+  console.log('data: ', entry);
+
   // if (!entry) {
   //   // @ts-expect-error <NotFound> doesn't require response
   //   return <h1>Not Found</h1>;
@@ -21,7 +23,7 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
 
   return (
     <div>
-      <Test />
+      <Test entry={entry} />
       {/* {entry.panels.map((panel, indexZero) => {
         const index = indexZero + 1;
         return <Section panel={panel} index={index} key={panel._id} />;
