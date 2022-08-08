@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.section-title {
+  text-shadow: 0 0 5rem rgb(0 0 0 / 70%), 0 0 0.5rem rgb(0 0 0 / 30%);
+}
+
+.c-section__background--scroll {
+  @apply relative;
+}
+
+.c-section__background--fixed {
+  @apply fixed;
+  box-shadow: 0 50px 50px -50px rgba(0, 0, 0, 0.7) inset,
+    0 -50px 50px -50px rgba(0, 0, 0, 0.7) inset;
+
+  @screen desk {
+    box-shadow: 0 100px 100px -100px rgba(0, 0, 0, 0.5) inset,
+      0 -100px 100px -100px rgba(0, 0, 0, 0.5) inset;
+  }
+}
+
+.c-section__background--fixed,
+.c-section__background--scroll {
+  transition: box-shadow 2s;
+}
