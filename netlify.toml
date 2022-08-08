@@ -1,6 +1,6 @@
 [build]
 publish = "dist/client"
-command = "SANITY_TOKEN=$SANITY_TOKEN yarn build"
+command = "export SANITY_TOKEN=$SANITY_TOKEN && yarn build"
 
 [dev]
 framework = "#static"
