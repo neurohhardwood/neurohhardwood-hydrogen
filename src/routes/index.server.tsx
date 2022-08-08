@@ -14,7 +14,7 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
 
   console.log('hello from the server component');
 
-  console.log('data: ', entry);
+  console.log('useSanityQuery', useSanityQuery);
 
   // if (!entry) {
   //   // @ts-expect-error <NotFound> doesn't require response
