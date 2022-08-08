@@ -1,9 +1,6 @@
 [build]
 publish = "dist/client"
-command = "yarn build"
-
-[context.production]
-SANITY_TOKEN = "$SANITY_TOKEN"
+command = "sed -i \"s|SANITY_TOKEN_PLACEHOLDER|${SANITY_TOKEN}|g\" sanity.config.ts && yarn build"
 
 [dev]
 framework = "#static"
