@@ -12,12 +12,10 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
     query: QUERY_SANITY_HOMEPAGE,
   });
 
-  console.log(QUERY_SANITY_HOMEPAGE);
-
-  if (!entry) {
-    // @ts-expect-error <NotFound> doesn't require response
-    return <h1>Not Found</h1>;
-  }
+  // if (!entry) {
+  //   // @ts-expect-error <NotFound> doesn't require response
+  //   return <h1>Not Found</h1>;
+  // }
 
   return (
     <div>
