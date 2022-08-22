@@ -118,6 +118,7 @@ export type SanitySectionPanel = {
   _id: string;
   _key?: string;
   _type: 'document';
+  title: string;
 };
 
 export type SanityImageWithProductHotspots = {
