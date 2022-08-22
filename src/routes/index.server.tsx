@@ -23,8 +23,7 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
         const index = indexZero + 1;
         return (
           <>
-            <h1>{panel.title}</h1>
-            {/* <Section panel={panel} index={index} key={panel._id} /> */}
+            <Section panel={panel} index={index} key={panel._id} />
           </>
         );
       })}
