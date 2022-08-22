@@ -111,9 +111,13 @@ export type SanityHeroPage = {
 };
 
 export type SanityHomePage = {
-  hero?: SanityHeroHome;
-  modules: (SanityModuleImage | SanityModuleInstagram)[];
-  seo: SanitySeo;
+  panels: SanitySectionPanel[];
+};
+
+export type SanitySectionPanel = {
+  _id: string;
+  _key?: string;
+  _type: 'document';
 };
 
 export type SanityImageWithProductHotspots = {

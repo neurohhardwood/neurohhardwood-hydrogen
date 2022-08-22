@@ -2,6 +2,7 @@ import {type HydrogenRouteProps, Image, Seo} from '@shopify/hydrogen';
 import clsx from 'clsx';
 import groq from 'groq';
 import {Section} from '~/components/section.client';
+import type {SanityHomePage} from '~/types';
 import useSanityQuery from '~/hooks/useSanityQuery';
 
 export default function Homepage({params}: {params?: HydrogenRouteProps}) {
@@ -10,8 +11,6 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
   const {data: entry} = useSanityQuery<SanityHomePage>({
     query: QUERY_SANITY_HOMEPAGE,
   });
-
-  console.log(entry);
 
   if (!entry) {
     // @ts-expect-error <NotFound> doesn't require response
@@ -22,7 +21,12 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
     <div>
       {entry.panels.map((panel, indexZero) => {
         const index = indexZero + 1;
-        return <Section panel={panel} index={index} key={panel._id} />;
+        return (
+          <>
+            <h1>{panel.title}</h1>
+            {/* <Section panel={panel} index={index} key={panel._id} /> */}
+          </>
+        );
       })}
     </div>
   );
