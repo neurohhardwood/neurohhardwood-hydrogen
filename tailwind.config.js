@@ -35,10 +35,9 @@ module.exports = {
 
     screens: {
       'palm-wide': '480px',
-      lap: '640px',
-      desk: '1024px',
-      'desk-wide': '1440px',
-      'desk-hd': '1920px',
+      lap: '736px',
+      'lap-wide': '1068px',
+      desk: '1440px',
     },
   },
   // eslint-disable-next-line node/no-unpublished-require

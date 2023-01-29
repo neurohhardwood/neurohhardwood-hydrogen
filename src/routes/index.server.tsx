@@ -1,10 +1,10 @@
-import {type HydrogenRouteProps, Image, Seo} from '@shopify/hydrogen';
-import clsx from 'clsx';
 import groq from 'groq';
-import {Section} from '~/components/section.client';
-import type {SanityHomePage} from '~/types';
+import { ContactPanel, IntroductionPanel } from '~/components/index.server';
 import useSanityQuery from '~/hooks/useSanityQuery';
 
+import { HydrogenRouteProps, type } from '@shopify/hydrogen';
+
+import type {SanityHomePage} from '~/types';
 export default function Homepage({params}: {params?: HydrogenRouteProps}) {
   const {handle, subpagehandle} = params;
 
@@ -21,11 +21,23 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
     <div>
       {entry.panels.map((panel, indexZero) => {
         const index = indexZero + 1;
-        return (
-          <>
-            <Section panel={panel} index={index} key={panel._id} />
-          </>
-        );
+
+        console.log(panel);
+
+        switch (panel._type) {
+          case 'panel.introduction':
+            return (
+              <IntroductionPanel data={panel} index={index} key={panel._key} />
+            );
+            break;
+
+          case 'panel.contact':
+            return <ContactPanel data={panel} index={index} key={panel._key} />;
+            break;
+
+          default:
+            break;
+        }
       })}
     </div>
   );
@@ -34,8 +46,5 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
 const QUERY_SANITY_HOMEPAGE = groq`
 *[_type == 'home'][0]{
   ...,
-  panels[]-> {
-    ...
-  }
 }
 `;

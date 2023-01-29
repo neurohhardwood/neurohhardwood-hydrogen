@@ -111,7 +111,7 @@ export type SanityHeroPage = {
 };
 
 export type SanityHomePage = {
-  panels: SanitySectionPanel[];
+  panels: (SanityIntroductionPanel | SanityContactPanel)[];
 };
 
 export type SanitySectionPanel = {
@@ -119,6 +119,24 @@ export type SanitySectionPanel = {
   _key?: string;
   _type: 'document';
   title: string;
+};
+
+export type SanityIntroductionPanel = {
+  _id: string;
+  _key?: string;
+  _type: 'panel.introduction';
+  backgroundImage: SanityAssetImage;
+  title: string;
+  body: Block[];
+};
+
+export type SanityContactPanel = {
+  _id: string;
+  _key?: string;
+  _type: 'panel.contact';
+  backgroundImage: SanityAssetImage;
+  title: string;
+  body: string;
 };
 
 export type SanityImageWithProductHotspots = {

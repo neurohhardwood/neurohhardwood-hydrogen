@@ -1,5 +1,6 @@
 import sanityClient from '@sanity/client';
-import {HydrogenUseQueryOptions, useQuery} from '@shopify/hydrogen';
+import { HydrogenUseQueryOptions, useQuery } from '@shopify/hydrogen';
+
 import sanityConfig from '../../sanity.config';
 
 interface Props {
@@ -12,8 +13,6 @@ interface Props {
 }
 
 const client = sanityClient(sanityConfig);
-
-console.log(sanityConfig);
 
 export default function useSanityQuery<T>({
   hydrogenQueryOptions,
