@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { Fragment } from 'react';
-import { SanityIntroductionPanel } from '~/types';
+import { SanityFeaturePanel, SanityIntroductionPanel } from '~/types';
 
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
 import { Disclosure } from '@headlessui/react';
@@ -8,7 +8,7 @@ import { Disclosure } from '@headlessui/react';
 import { SanityUrlBuilder } from '../media/SanityImage.client';
 
 type Props = {
-  panel: SanityIntroductionPanel;
+  panel: SanityIntroductionPanel | SanityFeaturePanel;
   index: number;
   panelType?: string;
   children: React.ReactElement;

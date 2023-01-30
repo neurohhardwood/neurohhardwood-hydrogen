@@ -111,33 +111,28 @@ export type SanityHeroPage = {
 };
 
 export type SanityHomePage = {
-  panels: (SanityIntroductionPanel | SanityContactPanel)[];
+  panels: (SanityIntroductionPanel | SanityFormPanel | SanityFeaturePanel)[];
 };
 
 export type SanitySectionPanel = {
   _id: string;
   _key?: string;
-  _type: 'document';
-  title: string;
-};
-
-export type SanityIntroductionPanel = {
-  _id: string;
-  _key?: string;
-  _type: 'panel.introduction';
   backgroundImage: SanityAssetImage;
   title: string;
   body: Block[];
 };
 
-export type SanityContactPanel = {
-  _id: string;
-  _key?: string;
-  _type: 'panel.contact';
-  backgroundImage: SanityAssetImage;
-  title: string;
-  body: string;
-};
+export interface SanityIntroductionPanel extends SanitySectionPanel {
+  _type: 'panel.introduction';
+}
+
+export interface SanityFeaturePanel extends SanitySectionPanel {
+  _type: 'panel.feature';
+}
+
+export interface SanityFormPanel extends SanitySectionPanel {
+  _type: 'panel.form';
+}
 
 export type SanityImageWithProductHotspots = {
   _key?: string;

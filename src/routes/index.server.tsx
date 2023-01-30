@@ -1,5 +1,6 @@
 import groq from 'groq';
-import { ContactPanel, IntroductionPanel } from '~/components/index.server';
+import { FeaturePanel } from '~/components';
+import { FormPanel, IntroductionPanel } from '~/components/index.server';
 import useSanityQuery from '~/hooks/useSanityQuery';
 
 import { HydrogenRouteProps, type } from '@shopify/hydrogen';
@@ -22,8 +23,6 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
       {entry.panels.map((panel, indexZero) => {
         const index = indexZero + 1;
 
-        console.log(panel);
-
         switch (panel._type) {
           case 'panel.introduction':
             return (
@@ -31,8 +30,12 @@ export default function Homepage({params}: {params?: HydrogenRouteProps}) {
             );
             break;
 
-          case 'panel.contact':
-            return <ContactPanel data={panel} index={index} key={panel._key} />;
+          case 'panel.feature':
+            return <FeaturePanel data={panel} index={index} key={panel._key} />;
+            break;
+
+          case 'panel.form':
+            return <FormPanel data={panel} index={index} key={panel._key} />;
             break;
 
           default:
